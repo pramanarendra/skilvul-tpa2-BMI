@@ -5,6 +5,7 @@ let form = document.getElementById("form");
 
 
 // Input validation
+// Check if input not empty and not a negative number
 const validate = () => {
     if(weight.value == "" || height.value == "" || parseInt(weight.value) < 0 || parseInt(height.value) < 0) {
         alert("Input is not valid");
@@ -40,5 +41,8 @@ const countBMI= () => {
 }
 
 // Submit form event
-document.getElementById("submit").addEventListener("click", validate);
+document.getElementById("submit").addEventListener("click", (ev) => {
+    ev.preventDefault();
+    validate();
+});
 
